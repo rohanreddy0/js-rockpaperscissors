@@ -1,3 +1,7 @@
-.font-helvetica {
+body {
     font-family: 'helvetica', sans-serif;
+}
+
+.winner-text {
+    color: blue;
 }

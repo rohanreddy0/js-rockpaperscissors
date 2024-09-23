@@ -1,7 +1,7 @@
 // Initialise Scores
 let humanScore = 0;
 let computerScore = 0;
-let roundCount = 0;
+let roundCount = 1;
 
 // Define Results List
 let results_list = document.querySelector("#results-list");
@@ -22,9 +22,6 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    roundCount++;
-    console.log(roundCount);
-
     if (humanChoice === computerChoice) {
         humanScore++;
         computerScore++;
@@ -57,11 +54,9 @@ function playRound(humanChoice, computerChoice) {
         humanScore++;
         return "You win - scissors beats paper";
     }
-
-
 }
 
-function addResult () {
+function addResult() {
 
     const result = document.createElement('li');
     result.textContent = `Round ${roundCount}: You: ${humanScore} | Computer: ${computerScore}`;
@@ -69,13 +64,30 @@ function addResult () {
 }
 
 function decideWinner(humanScore, computerScore) {
+    const winner = document.createElement("div");
+    winner.classList.add("winner-text");
+
     if (humanScore > computerScore) {
-        return "You win !!!";
+        winner.textContent = "You Win !";
+        results_list.appendChild(winner);
     } else if (computerScore > humanScore) {
-        return "Computer wins";
+        winner.textContent = "You Win !";
+        results_list.appendChild(winner);
     } else {
-        return "It is a draw !";
+        winner.textContent = "You Win !";
+        results_list.appendChild(winner);
     }
+}
+
+function playGame(humanChoice, rounds = 5) {
+
+    playRound(humanChoice, getComputerChoice());
+    addResult();
+
+    if (roundCount === rounds) {
+        decideWinner(rounds);
+    }
+    roundCount++;
 }
 
 // Define buttons
@@ -87,18 +99,15 @@ button_selections.addEventListener("click", (event) => {
     switch (target.id) {
         case "button-rock":
             console.log("rock");
-            playRound("rock", getComputerChoice());
-            addResult();
+            playGame("rock");
             break;
         case "button-paper":
             console.log("paper");
-            playRound("paper", getComputerChoice());
-            addResult();
+            playGame("paper");
             break;
         case "button-scissors":
             console.log("scissors");
-            playRound("scissors", getComputerChoice());
-            addResult();
+            playGame("scissors");
             break;
     }
 });
