@@ -63,7 +63,7 @@ function addResult() {
     results_list.appendChild(result);
 }
 
-function decideWinner(humanScore, computerScore) {
+function decideWinner() {
     const winner = document.createElement("div");
     winner.classList.add("winner-text");
 
@@ -71,10 +71,10 @@ function decideWinner(humanScore, computerScore) {
         winner.textContent = "You Win !";
         results_list.appendChild(winner);
     } else if (computerScore > humanScore) {
-        winner.textContent = "You Win !";
+        winner.textContent = "Computer Wins !";
         results_list.appendChild(winner);
     } else {
-        winner.textContent = "You Win !";
+        winner.textContent = "Draw !";
         results_list.appendChild(winner);
     }
 }
