@@ -1,3 +1,12 @@
+// Initialise Scores
+let humanScore = 0;
+let computerScore = 0;
+let roundCount = 0;
+
+// Define Results List
+let results_list = document.querySelector("#results-list");
+
+// Game Functions
 function getComputerChoice() {
     const randomNo = Math.random();
     if (randomNo <= 0.333) {
@@ -12,14 +21,10 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let humanChoice;
-    humanChoice = prompt("Choose rock, paper or scissors").toLowerCase();
-    console.log(`You chose: ${humanChoice}`);
-    return humanChoice;
-}
-
 function playRound(humanChoice, computerChoice) {
+    roundCount++;
+    console.log(roundCount);
+
     if (humanChoice === computerChoice) {
         humanScore++;
         computerScore++;
@@ -52,6 +57,15 @@ function playRound(humanChoice, computerChoice) {
         humanScore++;
         return "You win - scissors beats paper";
     }
+
+
+}
+
+function addResult () {
+
+    const result = document.createElement('li');
+    result.textContent = `Round ${roundCount}: You: ${humanScore} | Computer: ${computerScore}`;
+    results_list.appendChild(result);
 }
 
 function decideWinner(humanScore, computerScore) {
@@ -72,21 +86,21 @@ button_selections.addEventListener("click", (event) => {
     let target = event.target;
     switch (target.id) {
         case "button-rock":
-            console.log("Rock");
+            console.log("rock");
+            playRound("rock", getComputerChoice());
+            addResult();
             break;
         case "button-paper":
-            console.log("Paper");
+            console.log("paper");
+            playRound("paper", getComputerChoice());
+            addResult();
             break;
         case "button-scissors":
-            console.log("Scissors");
+            console.log("scissors");
+            playRound("scissors", getComputerChoice());
+            addResult();
             break;
     }
 });
 
 
-// Actual runtime code
-let humanScore = 0;
-let computerScore = 0;
-
-
-playRound(getHumanChoice(), getComputerChoice());
