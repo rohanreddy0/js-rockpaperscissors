@@ -1,13 +1,69 @@
 body {
     font-family: 'helvetica', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2F4858;
+}
+
+#page-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+.white-text {
+    color: #FFFFFF;
+}
+
+.heading {
+    font-size: 40px
+}
+
+.subheading {
+    font-size: 30px
+}
+
+#button-selections {
+    background-color: #33658A;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #F6AE2D;
+    padding: 10px;
+    width: 150px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
 }
 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+#results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .winner-text {
-    color: blue;
+    margin-top: 20px;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    background-color: #F6AE2D;
+    border-radius: 20px;
 }

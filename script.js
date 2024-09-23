@@ -64,7 +64,7 @@ function addResult() {
 }
 
 function decideWinner() {
-    const winner = document.createElement("div");
+    const winner = document.createElement("li");
     winner.classList.add("winner-text");
 
     if (humanScore > computerScore) {
@@ -111,5 +111,7 @@ button_selections.addEventListener("click", (event) => {
             break;
     }
 });
+
+// TODO: Add a reset button
 
 
