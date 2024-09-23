@@ -67,22 +67,8 @@ function decideWinner(humanScore, computerScore){
     }
 }
 
-function playGame(numRounds){
-    for (let i = 0; i < numRounds; i++){
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        console.log('\n');
-        console.log(`The current score is: \nYou: ${humanScore}, Computer: ${computerScore}`);
-        console.log('\n');
-    }
-    console.log('\n\n')
-    console.log(decideWinner(humanScore, computerScore));
-}
-
 // Actual runtime code
 let humanScore = 0;
 let computerScore = 0;
 
-numRounds = prompt("How many rounds ?");
-console.log(`There are ${numRounds} Rounds\n`);
-
-playGame(numRounds);
+playRound(getHumanChoice(), getComputerChoice());
