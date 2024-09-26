@@ -58,12 +58,30 @@ ul {
     align-items: center;
 }
 
+#results-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .winner-text {
     margin-top: 20px;
+    margin-bottom: 10px;
     color: black;
     font-weight: bold;
     padding: 10px;
     text-align: center;
     background-color: #F6AE2D;
     border-radius: 20px;
+}
+
+.reset-button {
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    width: 150px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+
 }

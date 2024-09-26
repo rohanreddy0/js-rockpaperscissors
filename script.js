@@ -2,6 +2,7 @@
 let humanScore = 0;
 let computerScore = 0;
 let roundCount = 1;
+let gameFinished = false;
 
 // Define Results List
 let results_list = document.querySelector("#results-list");
@@ -79,13 +80,32 @@ function decideWinner() {
     }
 }
 
-function playGame(humanChoice, rounds = 5) {
+function showResetButton() {
+    gameFinished = true;
+    const resetButton = document.createElement("button");
+    resetButton.classList.add("reset-button");
+    resetButton.id = "reset-button";
+    resetButton.textContent = "Restart Game";
+    if (gameFinished === true) {
+        results_list.appendChild(resetButton);
+    }
+    resetButton.addEventListener("click", () => {
+        results_list.innerHTML = "";
+        humanScore = 0;
+        computerScore = 0;
+        roundCount = 1;
+    });
+}
 
+// Function to play a round
+function playGame(humanChoice, rounds = 5) {
+    gameFinished = false;
     playRound(humanChoice, getComputerChoice());
     addResult();
 
     if (roundCount === rounds) {
         decideWinner(rounds);
+        showResetButton();
     }
     roundCount++;
 }
@@ -112,6 +132,9 @@ button_selections.addEventListener("click", (event) => {
     }
 });
 
-// TODO: Add a reset button
+
+// TODO: Add a reset button after 5 rounds
+// TODO: Add prompt which shows choices
+// TODO: Add something to choose number of rounds
 
 
