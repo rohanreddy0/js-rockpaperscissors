@@ -157,7 +157,3 @@ button_selections.addEventListener("click", (event) => {
             break;
     }
 });
-
-// TODO: Fix how many rounds picker
-
-
