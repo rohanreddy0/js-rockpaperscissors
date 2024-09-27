@@ -12,12 +12,10 @@ let results_list = document.querySelector("#results-list");
 // Get number of rounds
 
 let rounds_picker = document.querySelector("#num_rounds");
-let numRounds = rounds_picker.value;
-console.log(numRounds);
-
-function getNumRounds (){
-    return rounds_picker.value;
-}
+let numRounds = parseInt(rounds_picker.value);
+rounds_picker.addEventListener("change", () => {
+    numRounds = parseInt(rounds_picker.value);
+})
 
 // Game Functions
 function getComputerChoice() {
@@ -77,7 +75,6 @@ function addResult() {
 
 // Display user and computer selections
 outcome_container = document.querySelector("#outcome-container");
-
 function displayOutcome() {
     const outcome = document.createElement("h2");
     outcome.classList.add("outcome");
@@ -86,6 +83,7 @@ function displayOutcome() {
     outcome_container.appendChild(outcome);
 }
 
+// Function to decide and output the winner on game ending
 function decideWinner() {
     const winner = document.createElement("li");
     winner.classList.add("winner-text");
@@ -102,6 +100,7 @@ function decideWinner() {
     }
 }
 
+// Function to display reset button on game ending
 function showResetButton() {
     const resetButton = document.createElement("button");
     resetButton.classList.add("reset-button");
@@ -121,11 +120,12 @@ function showResetButton() {
 }
 
 // Function to play a round
-function playGame(humanChoice, rounds = 5) {
+function playGame(humanChoice, rounds = numRounds) {
     gameFinished = false;
     playRound(humanChoice, getComputerChoice());
     displayOutcome();
     addResult();
+    console.log(`Num Rounds = ${typeof rounds}, Current Round: ${typeof roundCount}`);
 
     if (roundCount === rounds) {
         gameFinished = true;
