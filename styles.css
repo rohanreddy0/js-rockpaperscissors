@@ -83,5 +83,13 @@ ul {
     border-radius: 10px;
     border: none;
     font-size: 20px;
+}
 
+.outcome {
+    color: #FFFFFF;
+    background-color: #21212150;
+    padding: 10px;
+    border-radius: 10px;
+    width: 600px;
+    text-align: center;
 }

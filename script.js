@@ -3,6 +3,8 @@ let humanScore = 0;
 let computerScore = 0;
 let roundCount = 1;
 let gameFinished = false;
+let humanChoice = "";
+let computerChoice = "";
 
 // Define Results List
 let results_list = document.querySelector("#results-list");
@@ -11,13 +13,13 @@ let results_list = document.querySelector("#results-list");
 function getComputerChoice() {
     const randomNo = Math.random();
     if (randomNo <= 0.333) {
-        console.log("Computer chose: rock")
+        computerChoice = "Rock";
         return "rock";
     } else if (randomNo > 0.333 && randomNo <= 0.666) {
-        console.log("Computer chose: paper")
+        computerChoice = "Paper";
         return "paper";
     } else {
-        console.log("Computer chose: scissors")
+        computerChoice = "Scissors"
         return "scissors";
     }
 }
@@ -58,10 +60,20 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function addResult() {
-
     const result = document.createElement('li');
     result.textContent = `Round ${roundCount}: You: ${humanScore} | Computer: ${computerScore}`;
     results_list.appendChild(result);
+}
+
+// Display user and computer selections
+outcome_container = document.querySelector("#outcome-container");
+
+function displayOutcome() {
+    const outcome = document.createElement("h2");
+    outcome.classList.add("outcome");
+    outcome.textContent = `You played ${humanChoice}. Computer played ${computerChoice}`;
+    outcome_container.innerHTML = "";
+    outcome_container.appendChild(outcome);
 }
 
 function decideWinner() {
@@ -91,6 +103,7 @@ function showResetButton() {
     }
     resetButton.addEventListener("click", () => {
         results_list.innerHTML = "";
+        outcome_container.innerHTML = "";
         humanScore = 0;
         computerScore = 0;
         roundCount = 1;
@@ -101,6 +114,7 @@ function showResetButton() {
 function playGame(humanChoice, rounds = 5) {
     gameFinished = false;
     playRound(humanChoice, getComputerChoice());
+    displayOutcome();
     addResult();
 
     if (roundCount === rounds) {
@@ -118,22 +132,20 @@ button_selections.addEventListener("click", (event) => {
     let target = event.target;
     switch (target.id) {
         case "button-rock":
-            console.log("rock");
+            humanChoice = "Rock";
             playGame("rock");
             break;
         case "button-paper":
-            console.log("paper");
+            humanChoice = "Paper";
             playGame("paper");
             break;
         case "button-scissors":
-            console.log("scissors");
+            humanChoice = "Scissors";
             playGame("scissors");
             break;
     }
 });
 
-
-// TODO: Add a reset button after 5 rounds
 // TODO: Add prompt which shows choices
 // TODO: Add something to choose number of rounds
 
