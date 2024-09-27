@@ -93,7 +93,7 @@ function decideWinner() {
 }
 
 function showResetButton() {
-    gameFinished = true;
+
     const resetButton = document.createElement("button");
     resetButton.classList.add("reset-button");
     resetButton.id = "reset-button";
@@ -104,6 +104,7 @@ function showResetButton() {
     resetButton.addEventListener("click", () => {
         results_list.innerHTML = "";
         outcome_container.innerHTML = "";
+        button_selections.style.display = "block";
         humanScore = 0;
         computerScore = 0;
         roundCount = 1;
@@ -118,8 +119,10 @@ function playGame(humanChoice, rounds = 5) {
     addResult();
 
     if (roundCount === rounds) {
+        gameFinished = true;
         decideWinner(rounds);
         showResetButton();
+        button_selections.style.display = "none";
     }
     roundCount++;
 }
