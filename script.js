@@ -68,6 +68,12 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function addResult() {
+    const resultSubHeader = document.createElement("h2");
+    resultSubHeader.classList.add("subheading");
+    resultSubHeader.textContent = "Results"
+    if (roundCount >= 1) {
+        outcome_container.appendChild(resultSubHeader);
+    }
     const result = document.createElement('li');
     result.textContent = `Round ${roundCount}: You: ${humanScore} | Computer: ${computerScore}`;
     results_list.appendChild(result);
@@ -76,6 +82,8 @@ function addResult() {
 // Display user and computer selections
 outcome_container = document.querySelector("#outcome-container");
 function displayOutcome() {
+
+
     const outcome = document.createElement("h2");
     outcome.classList.add("outcome");
     outcome.textContent = `You chose ${humanChoice}. Computer played ${computerChoice}`;
