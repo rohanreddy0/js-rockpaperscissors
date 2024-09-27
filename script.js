@@ -82,8 +82,6 @@ function addResult() {
 // Display user and computer selections
 outcome_container = document.querySelector("#outcome-container");
 function displayOutcome() {
-
-
     const outcome = document.createElement("h2");
     outcome.classList.add("outcome");
     outcome.textContent = `You chose ${humanChoice}. Computer played ${computerChoice}`;
