@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #2F4858;
+    background-color: #dee2e6;
 }
 
 #page-container {
@@ -17,37 +17,38 @@ body {
 #num-rounds-container {
     padding: 10px;
     font-size: 20px;
-    color: white;
+    color: #212529;
     display: flex;
     gap: 10px;
-    background-color: #21212150;
+    background-color: #ced4da;
     border-radius: 10px;
     margin-bottom: 20px;
 }
 
 #num_rounds {
     border-radius: 5px;
-    background-color: #21212150;
+    background-color: #ced4da;
     text-align: center;
     font-size: 20px;
-    color: white;
-}
-
-.white-text {
-    color: #FFFFFF;
+    color: #212529;
 }
 
 .heading {
     font-size: 40px;
     margin-top: 40px;
+    color: #212529;
 }
 
 .subheading {
-    font-size: 30px
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 5px;
+    color: #495057;
 }
 
 #button-selections {
-    background-color: #33658A;
+    background-color: #ced4da;
     padding: 20px;
     display: flex;
     gap: 10px;
@@ -55,7 +56,8 @@ body {
 }
 
 button {
-    background-color: #F6AE2D;
+    background-color: #284b63;
+    color: white;
     padding: 10px;
     width: 150px;
     border-radius: 10px;
@@ -87,16 +89,16 @@ ul {
 .winner-text {
     margin-top: 20px;
     margin-bottom: 10px;
-    color: black;
+    color: white;
     font-weight: bold;
     padding: 10px;
     text-align: center;
-    background-color: #F6AE2D;
+    background-color: #284b63;
     border-radius: 20px;
 }
 
 .reset-button {
-    background-color: #000000;
+    background-color: #212529;
     color: white;
     padding: 10px;
     width: 150px;
@@ -106,8 +108,8 @@ ul {
 }
 
 .outcome {
-    color: #FFFFFF;
-    background-color: #21212150;
+    color: #212529;
+    background-color: #ced4da;
     padding: 10px;
     border-radius: 10px;
     width: 600px;
