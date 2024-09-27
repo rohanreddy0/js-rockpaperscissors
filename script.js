@@ -9,6 +9,16 @@ let computerChoice = "";
 // Define Results List
 let results_list = document.querySelector("#results-list");
 
+// Get number of rounds
+
+let rounds_picker = document.querySelector("#num_rounds");
+let numRounds = rounds_picker.value;
+console.log(numRounds);
+
+function getNumRounds (){
+    return rounds_picker.value;
+}
+
 // Game Functions
 function getComputerChoice() {
     const randomNo = Math.random();
@@ -71,7 +81,7 @@ outcome_container = document.querySelector("#outcome-container");
 function displayOutcome() {
     const outcome = document.createElement("h2");
     outcome.classList.add("outcome");
-    outcome.textContent = `You played ${humanChoice}. Computer played ${computerChoice}`;
+    outcome.textContent = `You chose ${humanChoice}. Computer played ${computerChoice}`;
     outcome_container.innerHTML = "";
     outcome_container.appendChild(outcome);
 }
@@ -93,7 +103,6 @@ function decideWinner() {
 }
 
 function showResetButton() {
-
     const resetButton = document.createElement("button");
     resetButton.classList.add("reset-button");
     resetButton.id = "reset-button";
@@ -104,7 +113,7 @@ function showResetButton() {
     resetButton.addEventListener("click", () => {
         results_list.innerHTML = "";
         outcome_container.innerHTML = "";
-        button_selections.style.display = "block";
+        button_selections.style.display = "flex";
         humanScore = 0;
         computerScore = 0;
         roundCount = 1;
@@ -149,7 +158,6 @@ button_selections.addEventListener("click", (event) => {
     }
 });
 
-// TODO: Add prompt which shows choices
-// TODO: Add something to choose number of rounds
+// TODO: Fix how many rounds picker
 
 
